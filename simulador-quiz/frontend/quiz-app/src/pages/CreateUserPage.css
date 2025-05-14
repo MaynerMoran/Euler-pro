@@ -1,0 +1,197 @@
+/* CreateUserPage.css */
+/* Asegúrate de que este archivo esté en la misma carpeta que CreateUserPage.js */
+
+/* Estilos generales para la página */
+.create-user-page-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%); /* Azul oscuro a azul más claro */
+    padding: 20px;
+    box-sizing: border-box;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.create-user-form-card {
+    background-color: #ffffff;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    width: 100%;
+    max-width: 600px; /* Ancho máximo del formulario */
+    box-sizing: border-box;
+}
+
+.form-title {
+    font-size: 2.25rem; /* 36px */
+    font-weight: 700;
+    text-align: center;
+    color: #1e3a8a; /* Azul oscuro */
+    margin-bottom: 8px;
+}
+
+.form-subtitle {
+    font-size: 1.125rem; /* 18px */
+    text-align: center;
+    color: #4b5563; /* Gris medio */
+    margin-bottom: 30px;
+}
+
+.user-form .form-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Espacio entre campos en la misma fila */
+    margin-bottom: 20px; /* Se elimina el margen inferior aquí si los form-group ya lo tienen */
+}
+
+.user-form .form-group {
+    flex: 1; /* Permite que los grupos de formulario compartan espacio */
+    min-width: calc(50% - 10px); /* Para dos columnas, ajustando el gap */
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px; /* Espacio vertical entre grupos de campos o filas */
+}
+
+/* Si un form-group no está dentro de un form-row (es decir, es una fila por sí mismo) */
+.user-form > .form-group {
+    min-width: 100%; /* Ocupa todo el ancho */
+}
+
+
+.user-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #374151; /* Gris oscuro */
+    font-size: 0.875rem; /* 14px */
+}
+
+.user-form input[type="text"],
+.user-form input[type="email"],
+.user-form input[type="password"],
+.user-form input[type="number"],
+.user-form select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #d1d5db; /* Gris claro */
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 1rem; /* 16px */
+    color: #1f2937; /* Gris muy oscuro */
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.user-form input:focus,
+.user-form select:focus {
+    outline: none;
+    border-color: #3b82f6; /* Azul al enfocar */
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+}
+
+.admin-confirm-section {
+    background-color: #eff6ff; /* Azul muy claro (similar a indigo-50) */
+    border-left: 4px solid #3b82f6; /* Azul (similar a indigo-500) */
+    padding: 15px;
+    border-radius: 6px;
+    margin-top: 20px; /* Asegura espacio si el campo anterior no es un form-group con margin-bottom */
+    margin-bottom: 20px;
+}
+
+.admin-confirm-label {
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    color: #1e3a8a; /* Azul oscuro (similar a indigo-700) */
+    margin-bottom: 8px;
+    font-size: 0.875rem;
+}
+
+.lock-icon {
+    margin-right: 8px;
+    font-size: 1.1em; /* Ajusta el tamaño del emoji si es necesario */
+}
+
+.admin-confirm-note {
+    font-size: 0.75rem; /* 12px */
+    color: #2563eb; /* Azul (similar a indigo-600) */
+    margin-top: 8px;
+}
+
+.submit-button {
+    width: 100%;
+    padding: 12px 20px;
+    background-color: #2563eb; /* Azul principal */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
+    text-align: center;
+    margin-top: 10px; /* Espacio adicional antes del botón */
+}
+
+.submit-button:hover {
+    background-color: #1d4ed8; /* Azul más oscuro al pasar el mouse */
+}
+
+.submit-button:active {
+    transform: scale(0.98);
+}
+
+.submit-button:disabled {
+    background-color: #9ca3af; /* Gris para estado deshabilitado */
+    cursor: not-allowed;
+}
+
+.message-feedback {
+    margin-top: 20px;
+    padding: 12px 15px;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    text-align: center;
+}
+
+.message-feedback.success {
+    background-color: #d1fae5; /* Verde claro */
+    border: 1px solid #6ee7b7; /* Borde verde */
+    color: #065f46; /* Texto verde oscuro */
+}
+
+.message-feedback.error {
+    background-color: #fee2e2; /* Rojo claro */
+    border: 1px solid #fca5a5; /* Borde rojo */
+    color: #991b1b; /* Texto rojo oscuro */
+}
+
+.page-footer {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 0.875rem;
+    color: #e5e7eb; /* Gris muy claro para el texto del pie de página sobre fondo oscuro */
+}
+
+/* Media query para pantallas más pequeñas (ajusta los campos a una columna) */
+@media (max-width: 768px) {
+    .create-user-form-card {
+        padding: 20px;
+    }
+    .user-form .form-row {
+        flex-direction: column; /* Apila los campos en pantallas pequeñas */
+        gap: 0; /* El gap se maneja con el margin-bottom de form-group */
+        margin-bottom: 0; /* El último form-group de la fila ya tiene margen */
+    }
+    .user-form .form-group {
+        min-width: 100%; /* Cada campo ocupa todo el ancho */
+        /* margin-bottom se mantiene para el espaciado vertical entre grupos/filas */
+    }
+    .form-title {
+        font-size: 1.875rem; /* 30px */
+    }
+    .form-subtitle {
+        font-size: 1rem; /* 16px */
+    }
+}

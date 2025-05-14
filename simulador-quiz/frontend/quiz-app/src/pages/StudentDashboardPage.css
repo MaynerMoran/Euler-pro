@@ -1,0 +1,216 @@
+/* src/pages/StudentDashboardPage.css */
+
+.student-dashboard-page {
+    padding: 20px;
+}
+
+.student-dashboard-header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: var(--card-bg-color, #fff);
+    border-radius: var(--border-radius, 8px);
+    box-shadow: var(--box-shadow-lg, 0 10px 15px -3px rgba(0,0,0,0.1));
+}
+
+.student-dashboard-header h1 {
+    font-size: 2rem;
+    color: var(--primary-dark-color, #1e3a8a);
+    margin: 0 0 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+.student-dashboard-header .icon-lg { 
+    width: 1.3em;
+    height: 1.3em;
+}
+
+.student-dashboard-header p {
+    font-size: 1rem;
+    color: var(--text-light-color, #6b7280);
+}
+
+/* Layout principal ahora es una sola columna para el contenido principal */
+.dashboard-main-content {
+    display: flex; 
+    flex-direction: column;
+    gap: 25px;
+}
+
+.dashboard-section { /* Aplicado a .assigned-lessons-section */
+    background-color: var(--card-bg-color, #fff);
+    padding: 20px;
+    border-radius: var(--border-radius, 8px);
+    box-shadow: var(--box-shadow-md, 0 4px 6px -1px rgba(0,0,0,0.1));
+    display: flex; 
+    flex-direction: column;
+}
+
+.dashboard-section h2 {
+    font-size: 1.3rem;
+    color: var(--primary-color, #3b82f6);
+    margin-top: 0;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border-color, #e5e7eb);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.dashboard-section h2 .icon-sm, 
+.dashboard-section h2 .icon-lg { 
+    width: 1.2em;
+    height: 1.2em;
+}
+
+
+.assigned-lessons-section .lessons-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.assigned-lessons-section .lesson-item-student {
+    background-color: #f9fafb; 
+    padding: 15px;
+    border-radius: 6px;
+    margin-bottom: 20px; 
+    border: 1px solid var(--border-color, #e5e7eb);
+    transition: box-shadow 0.2s ease;
+    /* No usar flex aquí, los elementos internos se manejarán en bloque */
+}
+.assigned-lessons-section .lesson-item-student:hover {
+    box-shadow: var(--box-shadow-sm, 0 1px 2px 0 rgb(0 0 0 / 0.05));
+}
+
+.lesson-item-student .lesson-item-main-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Alinear verticalmente el texto y el botón */
+    gap: 15px;
+    margin-bottom: 15px; /* Espacio antes de la gráfica si existe */
+}
+
+
+.lesson-item-student .lesson-info {
+    flex-grow: 1;
+}
+
+.lesson-item-student .lesson-info h3 {
+    font-size: 1.1rem;
+    color: var(--primary-dark-color, #2563eb);
+    margin: 0 0 5px 0;
+}
+
+.lesson-item-student .lesson-info p {
+    font-size: 0.9rem;
+    color: var(--text-light-color, #6b7280);
+    margin: 0 0 8px 0;
+    line-height: 1.4;
+}
+.lesson-item-student .lesson-info .lesson-meta {
+    font-size: 0.8rem;
+    color: var(--text-color, #374151);
+}
+
+
+.action-button.start-lesson-button {
+    background-color: var(--secondary-color, #10b981);
+    color: white;
+    padding: 8px 15px;
+    font-size: 0.9rem;
+    white-space: nowrap; 
+    flex-shrink: 0; 
+}
+.action-button.start-lesson-button:hover {
+    background-color: #059669; 
+}
+
+/* Contenedor para la gráfica DENTRO de la tarjeta de lección */
+.lesson-progress-chart-container-integrated { /* Nombre de clase actualizado */
+    width: 100%;
+    height: 150px; 
+    margin-top: 15px; 
+    background-color: #fff; 
+    border-radius: 4px;
+    padding: 10px 0px 5px 0px; 
+    box-sizing: border-box;
+    border-top: 1px dashed #e0e0e0; 
+}
+
+
+.history-link-container {
+    margin-top: 25px; /* Espacio sobre el botón de historial */
+    text-align: center; /* Centrar el botón */
+    padding-bottom: 20px; /* Espacio al final de la página */
+}
+
+.action-button-outline.view-history-link-standalone {
+    display: inline-block; 
+    padding: 10px 20px; 
+    border: 1px solid var(--primary-color, #3b82f6);
+    color: var(--primary-color, #3b82f6);
+    background-color: transparent;
+    border-radius: var(--border-radius, 8px);
+    font-weight: 500;
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+.action-button-outline.view-history-link-standalone:hover {
+    background-color: var(--primary-color, #3b82f6);
+    color: white;
+}
+
+
+/* Estilos de carga y error (pueden ser globales o locales) */
+.loading-text {
+    text-align: center;
+    padding: 20px;
+    font-style: italic;
+    color: var(--text-light-color, #6b7280);
+}
+.error-message {
+    color: var(--danger-dark-color, #dc2626);
+    background-color: #fee2e2; 
+    padding: 10px 15px;
+    border-radius: var(--border-radius, 8px);
+    border: 1px solid var(--danger-color, #ef4444);
+    margin-bottom: 15px;
+    text-align: center;
+}
+.empty-state, .empty-state-small { 
+    text-align: center;
+    padding: 20px;
+    color: var(--text-light-color, #6b7280);
+    background-color: #f8f9fa; 
+    border-radius: 6px;
+    border: 1px dashed #e2e8f0; 
+}
+.empty-state-small {
+    padding: 10px;
+    font-size: 0.9rem;
+    margin-top: 10px;
+}
+
+
+@media (max-width: 768px) {
+    .dashboard-main-content { 
+        /* Ya es una sola columna, no necesita cambio aquí */
+    }
+    .student-dashboard-header h1 {
+        font-size: 1.6rem;
+    }
+    .dashboard-section h2 {
+        font-size: 1.2rem;
+    }
+    .lesson-item-student .lesson-item-main-info { 
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .assigned-lessons-section .start-lesson-button {
+        margin-top: 10px;
+        width: 100%;
+    }
+}

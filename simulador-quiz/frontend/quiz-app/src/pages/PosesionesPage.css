@@ -1,0 +1,129 @@
+/* src/pages/PosesionesPage.css */
+
+.posesiones-page {
+    padding: 20px;
+    max-width: 900px; /* Un poco más estrecho para tablas */
+    margin: 20px auto;
+}
+
+.posesiones-header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 15px;
+    background-color: var(--card-bg-color, #fff);
+    border-radius: var(--border-radius, 8px);
+    box-shadow: var(--box-shadow-md, 0 4px 6px -1px rgba(0,0,0,0.1));
+}
+
+.posesiones-header h1 {
+    font-size: 1.8rem;
+    color: var(--primary-dark-color, #1e3a8a);
+    margin: 0 0 8px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+.posesiones-header .icon-lg {
+    width: 1.2em;
+    height: 1.2em;
+}
+
+.posesiones-header p {
+    font-size: 0.95rem;
+    color: var(--text-light-color, #6b7280);
+}
+
+.lesson-selector-container {
+    margin-bottom: 25px;
+    padding: 15px;
+    background-color: var(--card-bg-color, #fff);
+    border-radius: var(--border-radius, 8px);
+    box-shadow: var(--box-shadow-sm);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.lesson-selector-container label {
+    font-weight: 500;
+    color: var(--text-color, #374151);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.lesson-selector-container label .icon-sm {
+    width: 1.1em;
+    height: 1.1em;
+}
+
+.lesson-selector-container select {
+    flex-grow: 1;
+    padding: 10px 12px;
+    border: 1px solid var(--border-color, #e5e7eb);
+    border-radius: 6px;
+    font-size: 0.95rem;
+    background-color: #fff;
+}
+.lesson-selector-container select:disabled {
+    background-color: #f3f4f6; /* slate-100 */
+    cursor: not-allowed;
+}
+
+.ranking-details-section {
+    margin-top: 20px;
+    background-color: var(--card-bg-color, #fff);
+    padding: 20px;
+    border-radius: var(--border-radius, 8px);
+    box-shadow: var(--box-shadow-md);
+}
+
+.ranking-details-section h2 {
+    font-size: 1.3rem;
+    color: var(--primary-color, #3b82f6);
+    margin-top: 0;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.ranking-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+
+.ranking-table th,
+.ranking-table td {
+    padding: 10px 12px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color, #e5e7eb);
+}
+
+.ranking-table th {
+    background-color: #f9fafb; /* slate-50 */
+    font-weight: 600;
+    color: var(--text-color, #374151);
+}
+
+.ranking-table tbody tr:hover {
+    background-color: #eff6ff; /* blue-50 */
+}
+
+.ranking-table .current-user-row {
+    background-color: #dbeafe; /* blue-100 */
+    font-weight: bold;
+}
+.ranking-table .current-user-row td {
+    color: var(--primary-dark-color, #1e40af);
+}
+
+
+.loading-text, .empty-state {
+    text-align: center;
+    padding: 20px;
+    font-style: italic;
+    color: var(--text-light-color, #6b7280);
+}
+.error-message.global-feedback {
+    /* Estilos globales de error */
+}

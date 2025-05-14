@@ -1,0 +1,214 @@
+/* src/pages/AdminLessonStatsPage.css */
+
+.admin-lesson-stats-page {
+    /* Estilos generales de .page-container ya se aplican desde App.css */
+    max-width: 1000px; /* Ancho máximo para esta página específica */
+    margin: 20px auto; /* Centrar */
+}
+
+.admin-lesson-stats-header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--bordes-sutiles);
+}
+
+.admin-lesson-stats-header h1 {
+    font-size: 2rem; /* Coincide con otros headers de admin */
+    color: var(--euler-azul-profundo);
+    margin: 0 0 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+.admin-lesson-stats-header .icon-lg {
+    width: 1.3em;
+    height: 1.3em;
+}
+
+.admin-lesson-stats-header p {
+    font-size: 1rem;
+    color: var(--texto-secundario);
+}
+
+.lesson-selector-container-admin { /* Similar a PosesionesPage pero con sufijo -admin */
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: var(--fondo-tarjeta); /* Podría ser un color más sutil si está dentro de page-container */
+    border-radius: var(--radio-borde);
+    box-shadow: var(--sombra-suave);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border: 1px solid var(--bordes-sutiles);
+}
+
+.lesson-selector-container-admin label {
+    font-weight: 500;
+    color: var(--texto-principal);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.95rem;
+}
+.lesson-selector-container-admin label .icon-sm {
+    width: 1.2em;
+    height: 1.2em;
+    color: var(--euler-azul-brillante);
+}
+
+.lesson-selector-container-admin select {
+    flex-grow: 1;
+    padding: 12px 15px;
+    border: 1px solid var(--bordes-sutiles);
+    border-radius: var(--radio-borde);
+    font-size: 1rem;
+    background-color: #fff; /* Asegurar fondo blanco para el select */
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.lesson-selector-container-admin select:focus {
+    outline: none;
+    border-color: var(--euler-azul-brillante);
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2);
+}
+.lesson-selector-container-admin select:disabled {
+    background-color: #e9ecef; /* Un gris más estándar para deshabilitado */
+    cursor: not-allowed;
+}
+
+.lesson-stats-details-section {
+    margin-top: 25px;
+    background-color: var(--fondo-tarjeta); /* Fondo blanco para la sección de detalles */
+    padding: 25px;
+    border-radius: var(--radio-borde-grande);
+    box-shadow: var(--sombra-media);
+    animation: fadeInSmooth 0.5s ease-out; /* Reutilizar animación de App.css */
+}
+
+.lesson-stats-details-section h2 { /* Título "Estadísticas para: [Nombre Lección]" */
+    font-size: 1.6rem;
+    color: var(--euler-azul-medio);
+    margin-top: 0;
+    margin-bottom: 25px;
+    text-align: center;
+    padding-bottom: 15px;
+    border-bottom: 1px dashed var(--bordes-sutiles);
+}
+
+.overall-lesson-summary {
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: #F8F9FC; /* Un fondo muy sutil para la sección de resumen */
+    border-radius: var(--radio-borde);
+    border: 1px solid #E8EBF0;
+}
+.overall-lesson-summary h3 {
+    font-size: 1.25rem;
+    color: var(--texto-principal);
+    margin-top: 0;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.overall-lesson-summary h3 .icon-lg, /* Si usas TrophyIcon o similar */
+.overall-lesson-summary h3 .icon-sm {
+    color: var(--euler-acento-verde); /* Icono verde para el resumen */
+}
+
+.summary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+}
+
+.summary-item {
+    background-color: var(--fondo-tarjeta);
+    padding: 15px;
+    border-radius: var(--radio-borde);
+    text-align: center;
+    box-shadow: var(--sombra-suave);
+    border: 1px solid var(--bordes-sutiles);
+}
+
+.summary-value {
+    display: block;
+    font-size: 2rem; /* Valor destacado */
+    font-weight: 700;
+    color: var(--euler-azul-profundo);
+    margin-bottom: 5px;
+}
+
+.summary-label {
+    font-size: 0.9rem;
+    color: var(--texto-secundario);
+}
+
+.student-performance-table-section {
+    margin-top: 30px;
+}
+.student-performance-table-section h3 {
+    font-size: 1.25rem;
+    color: var(--texto-principal);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.student-performance-table-section h3 .icon-sm {
+    color: var(--euler-azul-brillante);
+}
+
+.admin-stats-table { /* Estilo de tabla similar a PosesionesPage pero con prefijo admin */
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    margin-top: 15px;
+}
+
+.admin-stats-table th,
+.admin-stats-table td {
+    padding: 12px 15px; /* Más padding */
+    text-align: left;
+    border-bottom: 1px solid var(--bordes-sutiles);
+}
+
+.admin-stats-table th {
+    background-color: #F8F9FA; /* Fondo de cabecera muy claro */
+    font-weight: 600;
+    color: var(--texto-principal);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 0.8rem;
+}
+
+.admin-stats-table tbody tr:nth-child(even) {
+    background-color: #FCFDFE; /* Cebra sutil para filas pares */
+}
+.admin-stats-table tbody tr:hover {
+    background-color: #EBF4FF; /* Azul muy pálido al pasar el mouse */
+}
+
+/* Mensajes de carga y vacío (pueden ser globales o locales) */
+.loading-text, 
+.admin-lesson-stats-page .empty-state { /* Aplicar a .empty-state dentro de esta página */
+    text-align: center;
+    padding: 30px 20px;
+    font-style: italic;
+    color: var(--texto-secundario);
+    font-size: 1.05rem;
+}
+.admin-lesson-stats-page .empty-state.small-empty-state {
+    padding: 15px;
+    font-size: 0.95rem;
+    background-color: #f8f9fa;
+    border-radius: var(--radio-borde);
+    border: 1px dashed var(--bordes-sutiles);
+    margin-top: 10px;
+}
+
+.error-message.global-feedback {
+    /* Estilos ya definidos en App.css */
+    margin: 20px 0; /* Asegurar margen si está dentro de esta página */
+}

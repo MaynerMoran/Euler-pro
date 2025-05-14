@@ -1,0 +1,450 @@
+/* src/pages/ManageContentPage.css */
+
+/* Estilos generales para la página de gestión de contenido */
+.manage-content-container {
+    display: flex;
+    flex-direction: column; 
+    min-height: 100vh;
+    background: var(--fondo-general); /* Usar variable de App.css */
+    color: var(--texto-principal);    /* Usar variable de App.css */
+    font-family: var(--fuente-principal); /* Usar variable de App.css */
+    padding: 25px; /* Aumentar padding general */
+    box-sizing: border-box;
+}
+
+.content-header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 25px 20px;
+    background-color: var(--fondo-tarjeta);
+    border-radius: var(--radio-borde-grande);
+    box-shadow: var(--sombra-media);
+}
+
+.content-header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--euler-azul-profundo); /* Color de la marca */
+    letter-spacing: 0.5px;
+}
+
+.content-layout {
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* Panel de grupos más pequeño que el de preguntas */
+    gap: 30px; /* Espacio entre paneles */
+    align-items: flex-start; 
+    animation: fadeInSmooth 0.5s ease-out forwards; /* Animación de entrada */
+}
+
+.content-panel {
+    background-color: var(--fondo-tarjeta);
+    padding: 25px; /* Padding consistente */
+    border-radius: var(--radio-borde-grande);
+    box-shadow: var(--sombra-media);
+}
+
+.panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px; /* Más espacio */
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--bordes-sutiles); 
+}
+.panel-header h2 {
+    font-size: 1.5rem; /* Títulos de panel un poco más grandes */
+    color: var(--euler-azul-medio); 
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espacio entre icono y texto del título */
+}
+.panel-header .icon-sm { 
+    width: 1.2em; 
+    height: 1.2em;
+    stroke-width: 1.75; /* Iconos un poco más gruesos */
+}
+
+
+.add-button { /* Botón "Crear Grupo" o "Crear Pregunta" */
+    background-color: var(--euler-acento-verde); 
+    color: white;
+    padding: 9px 18px; /* Botón un poco más grande */
+    border: none;
+    border-radius: var(--radio-borde);
+    font-weight: 500;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px; /* Espacio entre icono y texto del botón */
+    transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+    box-shadow: var(--sombra-suave);
+}
+.add-button:hover {
+    background-color: #218838; /* Verde más oscuro */
+    transform: translateY(-2px);
+    box-shadow: var(--sombra-media);
+}
+.add-button .icon-sm {
+    width: 1.1em; /* Ajustar tamaño de icono en botón */
+    height: 1.1em;
+}
+
+
+.item-list { /* Para .qgroup-list y .question-list */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-height: 65vh; /* Altura máxima antes de scroll */
+    overflow-y: auto;
+    border: 1px solid var(--bordes-sutiles);
+    border-radius: var(--radio-borde);
+}
+.qgroup-item, .question-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px; /* Más padding en items */
+    border-bottom: 1px solid var(--bordes-sutiles);
+    transition: background-color 0.2s ease, border-left-color 0.2s ease;
+    border-left: 3px solid transparent; /* Para efecto hover */
+}
+.qgroup-item:last-child, .question-item:last-child {
+    border-bottom: none;
+}
+.qgroup-item:hover, .question-item:hover {
+    background-color: #F8F9FC; /* Fondo sutil al pasar el mouse */
+    border-left-color: var(--euler-azul-brillante); /* Indicador visual */
+}
+
+.qgroup-name {
+    font-weight: 500;
+    cursor: pointer;
+    flex-grow: 1;
+    color: var(--texto-principal);
+    transition: color 0.2s ease;
+}
+.qgroup-item.active-filter .qgroup-name,
+.qgroup-item:hover .qgroup-name { /* También al hacer hover sobre el ítem */
+    color: var(--euler-azul-medio);
+    font-weight: 600;
+}
+
+
+.question-item {
+    gap: 15px; 
+}
+.question-thumbnail {
+    width: 70px; /* Thumbnail un poco más grande */
+    height: 50px;
+    object-fit: cover;
+    border-radius: var(--radio-borde);
+    border: 1px solid #E0E0E0; /* Borde más sutil */
+    flex-shrink: 0;
+    background-color: #f0f0f0; /* Fondo por si la imagen no carga */
+}
+.question-text-preview {
+    flex-grow: 1;
+    font-size: 0.9rem;
+    line-height: 1.45; /* Mejorar legibilidad */
+    color: var(--texto-principal);
+    /* Para limitar a 2 líneas y truncar con puntos suspensivos */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;  
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-height: calc(1.45em * 2); /* line-height * número de líneas */
+}
+.question-details-preview {
+    font-size: 0.8rem; /* Un poco más grande */
+    color: var(--texto-secundario);
+    display: flex;
+    flex-direction: column; 
+    gap: 4px; /* Espacio entre detalles */
+    min-width: 130px; 
+    text-align: right;
+    flex-shrink: 0;
+}
+.question-details-preview span {
+    display: block;
+    white-space: nowrap; /* Evitar que los detalles se partan */
+}
+
+
+.item-actions { /* Contenedor para botones Editar/Eliminar en cada ítem */
+    display: flex;
+    gap: 8px;
+    flex-shrink: 0; 
+}
+/* Estilos para .action-btn-sm ya definidos en ManageLessonsPage.css o App.css */
+/* Si no, copiarlos aquí para consistencia */
+.action-btn-sm { 
+    padding: 8px; 
+    border: 1px solid transparent; 
+    border-radius: 50%; 
+    cursor: pointer; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.1s ease;
+}
+.action-btn-sm .icon-sm { width: 18px; height: 18px; }
+
+.action-btn-sm.edit-btn { 
+    color: var(--euler-azul-brillante);
+    background-color: transparent;
+}
+.action-btn-sm.edit-btn:hover { 
+    background-color: #E9F2FC; 
+    color: var(--euler-azul-profundo);
+    transform: scale(1.1);
+}
+.action-btn-sm.delete-btn { 
+    color: var(--color-error); 
+    background-color: transparent;
+}
+.action-btn-sm.delete-btn:hover { 
+    background-color: #FFF0F1; 
+    color: #B82E2E; 
+    transform: scale(1.1);
+}
+.action-btn-sm:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+
+
+.filter-controls { /* Contenedor para el selector de filtro por grupo */
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px;
+    background-color: #F8F9FC;
+    border-radius: var(--radio-borde);
+    border: 1px solid var(--bordes-sutiles);
+}
+.filter-controls label {
+    font-weight: 500;
+    font-size: 0.95rem; /* Un poco más grande */
+    color: var(--texto-principal);
+}
+.filter-controls select {
+    padding: 10px 12px; /* Selector más cómodo */
+    border-radius: var(--radio-borde);
+    border: 1px solid var(--bordes-sutiles);
+    background-color: white;
+    font-size: 0.95rem;
+    min-width: 220px; 
+    flex-grow: 1; /* Para que ocupe espacio disponible */
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.filter-controls select:focus {
+    outline: none;
+    border-color: var(--euler-azul-brillante);
+    box-shadow: 0 0 0 3px rgba(var(--euler-azul-brillante), 0.2);
+}
+
+/* Estilos para el Modal (reutilizar de App.css si es posible, si no, definir aquí) */
+/* Asumiendo que los estilos base de .modal-overlay, .modal-content, etc., están en App.css */
+
+.modal-content.modal-lg { max-width: 750px; } /* Ajustar ancho para modal de pregunta */
+
+.modal-form .form-field-modal {
+    margin-bottom: 20px; /* Más espacio entre campos del modal */
+}
+.modal-form .form-field-modal label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: var(--texto-principal);
+    font-size: 0.9rem;
+}
+.modal-form .form-field-modal input[type="text"],
+.modal-form .form-field-modal textarea,
+.modal-form .form-field-modal select,
+.modal-form .form-field-modal input[type="file"] {
+    width: 100%;
+    padding: 12px 15px; /* Inputs más cómodos */
+    border: 1px solid var(--bordes-sutiles);
+    border-radius: var(--radio-borde);
+    font-size: 0.95rem;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.modal-form .form-field-modal input[type="file"] {
+    padding: 10px 12px; 
+}
+
+.modal-form .form-field-modal input:focus,
+.modal-form .form-field-modal textarea:focus,
+.modal-form .form-field-modal select:focus {
+    outline: none;
+    border-color: var(--euler-azul-brillante);
+    box-shadow: 0 0 0 3px rgba(var(--euler-azul-brillante), 0.2);
+}
+.modal-form .form-field-modal textarea {
+    resize: vertical;
+    min-height: 80px; /* Un poco más alto */
+}
+
+.image-preview-modal {
+    max-width: 250px; 
+    max-height: 180px;
+    margin-top: 12px;
+    border-radius: var(--radio-borde);
+    border: 1px solid var(--bordes-sutiles);
+    display: block; 
+    object-fit: contain; /* Para que la imagen se vea completa */
+}
+.current-image-container {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: var(--radio-borde);
+}
+.current-image-container .checkbox-inline {
+    display: flex; /* Mejor alineación */
+    align-items: center;
+    margin-top: 10px; /* Espacio sobre el checkbox */
+    font-size: 0.9rem;
+    color: var(--texto-secundario);
+}
+.current-image-container .checkbox-inline input[type="checkbox"] {
+    margin-right: 8px;
+    accent-color: var(--euler-azul-medio);
+    transform: scale(1.1);
+}
+
+
+/* Estilos para la vista previa de opciones generadas en el modal */
+.parsed-options-preview { 
+    margin-top: 20px; 
+    font-size: 0.9rem; 
+    padding: 15px; /* Más padding */
+    background-color: #F8F9FC; /* Un fondo muy sutil para la sección de preview */
+    border-radius: var(--radio-borde);
+    border: 1px solid var(--bordes-sutiles);
+}
+.parsed-options-preview p strong {
+    color: var(--euler-azul-medio); 
+    margin-bottom: 10px; /* Más espacio */
+    display: block;
+    font-size: 1rem; /* Título de la sección un poco más grande */
+}
+
+/* Personalización de la numeración para la lista <ol> */
+.parsed-options-preview ol {
+    list-style-type: none; 
+    counter-reset: options-counter; 
+    padding-left: 0; 
+    margin-left: 0; 
+}
+
+.parsed-options-preview li {
+    counter-increment: options-counter; 
+    margin-bottom: 8px; 
+    padding-left: 35px; /* Aumentar padding para números más largos y paréntesis */
+    position: relative; 
+    line-height: 1.6; /* Mejorar legibilidad */
+}
+
+.parsed-options-preview li::before {
+    content: counter(options-counter) ") "; /* CORRECCIÓN: Usar ")" */
+    position: absolute;
+    left: 0;
+    top: 0; 
+    font-weight: bold;
+    color: var(--texto-principal); 
+    width: 30px; /* Ancho para el número y paréntesis */
+    text-align: right; 
+    padding-right: 5px; 
+}
+
+.parsed-options-preview .correct-option-preview span { 
+    color: var(--euler-acento-verde); 
+    font-weight: 500; 
+}
+.parsed-options-preview .correct-option-preview em { 
+    color: var(--euler-acento-verde);
+    font-style: normal; 
+    font-size: 0.85em;
+    margin-left: 5px;
+}
+.input-hint.error-hint { /* Para el mensaje "Debe ingresar al menos una opción válida." */
+    color: var(--color-error); 
+    font-size: 0.85rem; 
+    margin-top: 5px; 
+}
+
+.modal-form-actions { /* Botones Cancelar/Crear Pregunta en el modal */
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px; /* Un poco más de espacio */
+    margin-top: 25px;
+    padding-top: 20px; /* Más padding */
+    border-top: 1px solid var(--bordes-sutiles);
+}
+/* Reutilizar .auth-button de App.css si es posible para los botones primarios */
+.modal-form-actions .form-button {
+    /* Estilos base ya definidos en App.css o ManageLessonsPage.css */
+    padding: 10px 20px; /* Asegurar buen tamaño */
+}
+/* .form-button.primary, .form-button.secondary ya deberían estar definidos */
+
+
+/* Mensajes globales y estados de carga (reutilizar de App.css si es posible) */
+.global-feedback { margin-bottom: 20px; padding: 15px; border-radius: var(--radio-borde); text-align: center; }
+.error-message.global-feedback { background-color: #FFF0F1; color: var(--color-error); border: 1px solid var(--color-error); }
+.success-message.global-feedback { background-color: #E9F9EE; color: var(--euler-acento-verde); border: 1px solid var(--euler-acento-verde); }
+.loading-text { text-align: center; padding: 25px; color: var(--texto-secundario); font-style: italic; font-size: 1.05rem;}
+.empty-state { text-align: center; padding: 25px; color: var(--texto-secundario); font-style: italic; background-color: #F8F9FC; border-radius: var(--radio-borde); border: 1px dashed var(--bordes-sutiles);}
+
+/* Responsive adjustments */
+@media (max-width: 992px) { /* Ajustar breakpoint si es necesario */
+    .content-layout {
+        grid-template-columns: 1fr; /* Apilar en pantallas medianas y pequeñas */
+    }
+    .groups-q-panel { /* El panel de grupos de preguntas */
+        margin-bottom: 30px; /* Espacio cuando se apila sobre el panel de preguntas */
+    }
+}
+
+@media (max-width: 768px) {
+    .content-header h1 { font-size: 2rem; }
+    .panel-header h2 { font-size: 1.3rem; }
+    .modal-content.modal-lg {
+        max-width: 95%; /* Modal más ancho en móvil */
+        padding: 20px;
+    }
+    .filter-controls {
+        flex-direction: column; /* Apilar label y select en móvil */
+        align-items: stretch; /* Para que el select ocupe el ancho */
+    }
+    .filter-controls label {
+        margin-bottom: 8px;
+    }
+    .filter-controls select {
+        min-width: unset; /* Quitar ancho mínimo en móvil */
+    }
+    .question-item {
+        flex-direction: column; /* Apilar contenido del ítem de pregunta */
+        align-items: flex-start;
+        gap: 10px;
+    }
+    .question-thumbnail {
+        width: 100%; /* Thumbnail ocupa ancho */
+        height: auto; /* Altura automática */
+        max-height: 150px; /* Limitar altura máxima */
+        margin-bottom: 10px;
+    }
+    .question-details-preview {
+        text-align: left; /* Alinear a la izquierda en móvil */
+        width: 100%;
+        margin-top: 8px;
+    }
+    .item-actions {
+        width: 100%;
+        justify-content: flex-end; /* Botones a la derecha */
+        margin-top: 10px;
+    }
+}
+
